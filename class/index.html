@@ -258,20 +258,11 @@ function data(){
   var ck = form.elements['optin'];
   return { name: val('name'), email: val('email'), phone: val('phone').replace(/[\s-]/g, ''), optin: ck && ck.checked ? '是' : '否' };
 }
-function save(){ try { localStorage.setItem(KEY, JSON.stringify(data())); } catch(e){} }
-function restore(){
-  var o; try { o = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ return; }
-  if (!o) return;
-  Object.keys(o).forEach(function(k){
-    var el = form.elements[k]; if (!el) return;
-    if (el.type === 'checkbox') { el.checked = o[k] === '是'; return; }
-    if (!el.value) el.value = o[k];
-  });
-}
+// 不留草稿：每次開頁都是空白的表單。順手把舊版本存過的東西清掉。
+function clearSaved(){ try { localStorage.removeItem(KEY); } catch(e){} }
 function sync(){
   fs.forEach(function(f){ if (f.classList.contains('bad') && good(f)) f.classList.remove('bad'); });
   cDone.textContent = fs.filter(good).length;
-  save();
 }
 form.addEventListener('input', sync);
 form.addEventListener('change', sync);
@@ -380,10 +371,10 @@ function showDone(o, preview){
   copyBtn.onclick = function(){ copyTo(copyBtn, toText(o)); };
   form.style.display = 'none';
   document.getElementById('done').classList.add('on');
-  try { localStorage.removeItem(KEY); } catch(e){}
+  clearSaved();
   document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-restore();
+clearSaved();
 sync();
 </script>
