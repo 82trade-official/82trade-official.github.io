@@ -1,0 +1,382 @@
+<title>82TRADE 第一堂免費公開課｜報名</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap">
+<style>
+  /* 10 月體驗課報名頁：課程資訊頁的排法（靠左、編號、細斜線底），
+     跟 10/3 邀請函那套（置中、光暈、請柬感）刻意不同。品牌規範照舊：
+     深色底、Cyan 稀缺、數字一律 IBM Plex Mono、每頁找得到 20% 母題。 */
+  :root{
+    --bg:#0B0D0F; --panel:#111417; --panel-2:#171B1F;
+    --line:#2A2E31; --line-2:#1E2226;
+    --txt:#F2F3F4; --sub:#8A9196; --mute:#5B6165;
+    --cyan:#3EC1DD; --alert:#D9584B;
+    --cn:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    --mo:"IBM Plex Mono",ui-monospace,monospace;
+    --dp:"Archivo Black","Arial Black",var(--cn),sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--cn);font-weight:300;
+    font-size:15px;line-height:1.95;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* 45 度細斜線：跟 IG 貼文同一個底 */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:repeating-linear-gradient(45deg,#14181C 0 1.1px,transparent 1.1px 9px)}
+  .wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px 120px}
+  .mono,.num{font-family:var(--mo)}
+
+  /* 頁首：logo ＋ 20% 母題橫條（不是進度條，是品牌記號） */
+  header{display:flex;align-items:center;justify-content:space-between;padding:26px 0 0}
+  .lg{display:flex;align-items:center;gap:10px}
+  .lg i{width:22px;height:22px;border-radius:6px;display:block;
+    background:linear-gradient(180deg,var(--cyan) 0 20%,#FFFFFF 20% 100%)}
+  .lg span{font-family:var(--dp);font-size:17px;letter-spacing:-.01em}
+  .tag{font-family:var(--mo);font-size:10px;letter-spacing:.26em;color:var(--sub);text-transform:uppercase}
+  .bar{margin:18px 0 0;height:3px;display:flex;gap:3px}
+  .bar i{display:block;height:100%;background:#2A2E31;border-radius:2px}
+  .bar i:first-child{width:20%;background:var(--cyan)}
+  .bar i:last-child{flex:1}
+
+  /* 主標 */
+  .hero{padding:54px 0 0}
+  .kick{margin:0;font-family:var(--mo);font-size:11px;letter-spacing:.3em;color:var(--cyan)}
+  h1{margin:16px 0 0;font-size:clamp(30px,8vw,46px);font-weight:900;line-height:1.28;letter-spacing:-.01em}
+  .lede{margin:20px 0 0;font-size:15px;color:var(--sub);line-height:2.05;max-width:30em}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-family:var(--mo);
+    font-size:11px;letter-spacing:.1em;color:var(--sub)}
+  .chip.on{border-color:#2F4A52;color:var(--cyan)}
+
+  /* 課程三段：左編號＋一條直線串起來 */
+  .sec{margin:64px 0 0}
+  .sec-h{display:flex;align-items:baseline;gap:14px;margin:0 0 22px}
+  .sec-h span{font-family:var(--mo);font-size:11px;letter-spacing:.26em;color:var(--mute)}
+  .sec-h h2{margin:0;font-size:19px;font-weight:700;letter-spacing:.02em}
+  .list{position:relative;margin:0;padding:0 0 0 46px;list-style:none}
+  .list::before{content:"";position:absolute;left:14px;top:8px;bottom:8px;width:1px;background:var(--line-2)}
+  .list li{position:relative;padding:0 0 26px}
+  .list li:last-child{padding-bottom:0}
+  .list li::before{content:attr(data-n);position:absolute;left:-46px;top:0;width:29px;height:29px;
+    border:1px solid var(--line);border-radius:50%;background:var(--bg);
+    font-family:var(--mo);font-size:11px;color:var(--sub);display:flex;align-items:center;justify-content:center}
+  .list h3{margin:2px 0 0;font-size:17px;font-weight:700;line-height:1.6}
+  .list p{margin:7px 0 0;font-size:13.5px;color:var(--sub);line-height:1.95}
+
+  /* 資訊格 */
+  .facts{margin:30px 0 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .fact{display:flex;gap:18px;padding:16px 20px;border-bottom:1px solid var(--line-2)}
+  .fact:last-child{border-bottom:0}
+  .fact dt{margin:0;flex:0 0 74px;font-family:var(--mo);font-size:10px;letter-spacing:.2em;color:var(--mute);padding-top:4px}
+  .fact dd{margin:0;font-size:14px;line-height:1.85}
+  .fact dd small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}
+  .notes{margin:14px 0 0;padding:0;list-style:none}
+  .notes li{position:relative;padding-left:18px;font-size:13px;color:var(--sub);line-height:1.95}
+  .notes li::before{content:"–";position:absolute;left:0;color:var(--mute)}
+
+  /* 頁尾警語 */
+  .fine{margin:52px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+  .fine-h{margin:0;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--mute)}
+
+  /* 報名面板 */
+  .signup{margin:64px 0 0;border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:28px 24px 26px}
+  .signup .head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .signup h2{margin:0;font-size:22px;font-weight:900;letter-spacing:.02em}
+  .count{font-family:var(--mo);font-size:12px;color:var(--mute)}
+  .count b{color:var(--cyan);font-weight:500}
+  .signup .zh{margin:8px 0 0;font-size:13px;color:var(--sub)}
+  .f{margin:24px 0 0}
+  .f label{display:block;font-family:var(--mo);font-size:10px;letter-spacing:.22em;color:var(--sub);margin:0 0 9px}
+  .f label b{color:var(--cyan);font-weight:500;margin-left:6px}
+  .f input{width:100%;background:var(--panel-2);border:1px solid var(--line-2);border-radius:10px;color:var(--txt);
+    font-family:var(--cn);font-size:15px;font-weight:300;padding:13px 15px;transition:border-color .18s,background .18s;
+    -webkit-appearance:none}
+  .f input::placeholder{color:#4E555A}
+  .f input:focus{outline:none;border-color:#33707E;background:#12181C}
+  .f.bad input{border-color:var(--alert)}
+  .f .hint{margin:8px 0 0;font-size:12px;color:var(--mute);line-height:1.8}
+  .f .err{display:none;margin:8px 0 0;font-size:12px;color:var(--alert)}
+  .f.bad .err{display:block}
+  .send{margin:28px 0 0;width:100%;border:0;border-radius:12px;background:var(--cyan);color:#062831;
+    font-family:var(--cn);font-size:16px;font-weight:900;letter-spacing:.06em;padding:16px 20px;cursor:pointer;transition:filter .18s}
+  .send:disabled{filter:grayscale(.45) brightness(.85);cursor:default}
+  .sfail{display:none;margin:14px 0 0;font-size:12.5px;color:var(--alert);line-height:1.9}
+  .ghost{margin-top:10px;background:none;border:1px solid var(--line);color:var(--sub);border-radius:999px;
+    font-family:var(--mo);font-size:11px;letter-spacing:.12em;padding:9px 15px;cursor:pointer}
+  .warn{margin:10px 0 0;font-size:12px;color:#8A9196;line-height:1.85;border-left:2px solid #2A2E31;padding-left:11px}
+  .opt{display:flex;gap:10px;align-items:flex-start;margin:26px 0 0;font-size:13px;color:var(--sub);line-height:1.75;cursor:pointer}
+  .opt input{width:17px;height:17px;margin:3px 0 0;accent-color:var(--cyan);flex:0 0 17px}
+  .privacy{margin:22px 0 0;font-size:11.5px;color:var(--mute);line-height:1.9}
+  .privacy b{color:var(--sub);font-weight:500}
+
+  /* 送出後 */
+  .done{display:none}
+  .done.on{display:block}
+  .done .tick{width:34px;height:34px;border-radius:50%;border:1px solid var(--cyan);color:var(--cyan);
+    display:flex;align-items:center;justify-content:center;font-size:16px}
+  .done h2{margin:16px 0 0;font-size:22px;font-weight:900}
+  .done p{margin:12px 0 0;font-size:14px;color:var(--sub);line-height:2}
+  .sum{margin:22px 0 0;border-top:1px solid var(--line-2)}
+  .sum .row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:14px}
+  .sum dt{margin:0;font-family:var(--mo);font-size:10px;letter-spacing:.2em;color:var(--mute);padding-top:4px}
+  .sum dd{margin:0;text-align:right;overflow-wrap:anywhere}
+  .preview{display:none;margin:14px 0 0;font-size:12px;color:var(--alert)}
+
+  footer{margin:58px 0 0;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  footer .mono{font-size:10px;letter-spacing:.24em;color:var(--mute)}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="lg"><i></i><span>82TRADE</span></span>
+    <span class="tag">Free Online Class</span>
+  </header>
+  <div class="bar"><i></i><i></i></div>
+
+  <section class="hero">
+    <p class="kick">第一堂免費公開課　·　<span class="num">10</span> 月</p>
+    <h1>第一堂課，<br>我們公開上。</h1>
+    <p class="lede">82TRADE 的第一堂免費公開課，<span class="num">10</span> 月線上開講，約兩小時。現在留下資料，課程公開後我們會再把資訊傳給你。</p>
+    <div class="chips">
+      <span class="chip on">免費</span>
+      <span class="chip">公開課</span>
+      <span class="chip">線上</span>
+      <span class="chip">約 <span class="num">2</span> 小時</span>
+      <span class="chip">不錄影・不回放</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h"><span>DETAILS</span><h2>時間與形式</h2></div>
+    <dl class="facts">
+      <div class="fact"><dt>時間</dt><dd><span class="num">2026</span> 年 <span class="num">10</span> 月<small>課程公開後，會再把資訊傳給留了資料的人</small></dd></div>
+      <div class="fact"><dt>形式</dt><dd>線上，約 <span class="num">2</span> 小時<small>上課連結會寄到你的信箱</small></dd></div>
+      <div class="fact"><dt>費用</dt><dd>免費<small>聽完不用買任何東西</small></dd></div>
+    </dl>
+  </section>
+
+  <section class="signup" id="panel">
+    <form id="reg" novalidate>
+      <div class="head">
+        <h2>報名</h2>
+        <span class="count"><b id="cDone">0</b> / <span class="num">3</span></span>
+      </div>
+      <p class="zh">三題，約三十秒。課程公開後我們會再把資訊傳給你。</p>
+
+      <div class="f" data-req="name">
+        <label for="fName">姓名／稱呼<b>必填</b></label>
+        <input type="text" name="name" id="fName" placeholder="例：小明" autocomplete="name">
+        <p class="hint">中文、英文或暱稱都可以。</p>
+        <p class="err">請填一個稱呼</p>
+      </div>
+
+      <div class="f" data-req="email">
+        <label for="fEmail">Email<b>必填</b></label>
+        <input type="email" name="email" id="fEmail" placeholder="you@example.com" autocomplete="email"
+          autocapitalize="off" spellcheck="false" inputmode="email">
+        <p class="hint">上課連結會寄到這裡，填常用的。</p>
+        <p class="err">請填一個看起來正確的 Email</p>
+      </div>
+
+      <div class="f" data-req="phone">
+        <label for="fPhone">手機<b>必填</b></label>
+        <input type="tel" name="phone" id="fPhone" placeholder="09xx-xxx-xxx" autocomplete="tel" inputmode="tel">
+        <p class="hint">Email 沒收到時的備援，開課前會傳一則提醒。</p>
+        <p class="err">請填台灣手機號碼（<span class="num">09</span> 開頭 <span class="num">10</span> 碼）</p>
+      </div>
+
+      <label class="opt"><input type="checkbox" name="optin" id="fOptin"><span>我願意日後收到 82TRADE 的課程與活動通知（不勾也能報名，隨時可以取消）</span></label>
+
+      <button type="submit" class="send" id="sendBtn">送出報名</button>
+      <div class="sfail" id="sendErr">
+        沒有送出成功，可能是網路不穩，請再按一次。<br>
+        一直失敗的話，按下面複製起來直接傳給我們。<br>
+        <button type="button" class="ghost" id="errCopy">複製報名內容</button>
+      </div>
+      <p class="privacy">
+        <b>個人資料蒐集告知。</b>
+        蒐集者：82TRADE。蒐集的是你的稱呼、Email 和手機。
+        用途有兩個：一是這場第一堂免費公開課的報名、開課通知與提醒；二是<b>只有在你自己勾選上面那一格時</b>，日後寄課程與活動資訊給你。
+        資料存在 Google 雲端（Google LLC，伺服器位於境外），只有 82TRADE 負責這場課的人看得到。
+        <b>不提供給其他第三人，也不會提供給任何交易所或交易平台。</b>
+        保存期間：課程用途，課程結束後 <span class="num">30</span> 天內刪除；通知用途（限已勾選者），到你表示不要為止。
+        你可以隨時查詢、閱覽、複製、補充更正、停止使用或刪除你的資料，也可以隨時免費取消日後的通知，
+        兩者都請洽官方 LINE @827egjii，我們會在 <span class="num">15</span> 天內處理。
+        不留這些資料，我們就沒辦法通知你上課連結；那一格不勾，完全不影響你參加這場課。
+        按下「送出報名」，代表你已滿 <span class="num">18</span> 歲，並同意以上內容。
+      </p>
+    </form>
+
+    <div class="done" id="done">
+      <div class="tick">✓</div>
+      <h2 id="doneTitle">報名完成</h2>
+      <p id="doneMsg"></p>
+      <p class="preview" id="previewNote">預覽模式：ENDPOINT 未設定，這筆沒有送出</p>
+      <dl class="sum" id="sum"></dl>
+      <button type="button" class="ghost" id="copyBtn">複製報名內容</button>
+    </div>
+  </section>
+
+  <section class="fine">
+    <p class="fine-h">課前請先知道</p>
+    <ul class="notes">
+      <li>這場課不錄影、不提供回放，當天要自己留兩個小時。</li>
+      <li>這場課是交易教育內容，不構成投資建議，也不是對任何特定商品的分析意見或推介。</li>
+      <li>這場課不銷售任何商品或服務，不推薦標的、不提供進出場點位，也不推介任何交易平台。</li>
+      <li>官方不帶單、不報明牌、不代客操作、不收取績效分潤：我們給判斷方法，不給你買賣點位。</li>
+      <li>限 <span class="num">18</span> 歲以上參加。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span class="lg"><i></i><span>82TRADE</span></span>
+    <span class="mono">READ THE MARKET.</span>
+  </footer>
+</div>
+
+<script>
+// ======================== 設定 ========================
+// 收件後端（Google Apps Script 部署網址）。留空＝預覽模式，送出不會真的寄出。
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbycZkVvQ1xrGdmK_Iv4aLS3-pjRrFQT64B6PU0Hz3dsKwAueVVyM8Gvaz54mb6frJ1EuA/exec";
+
+var form = document.getElementById('reg');
+var fs = Array.prototype.slice.call(document.querySelectorAll('.f'));
+var cDone = document.getElementById('cDone');
+var KEY = 'class-oct-signup';
+
+function okEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+function okPhone(v){ return /^09\d{8}$/.test(v.replace(/[\s-]/g, '')); }
+function val(k){ var el = form.elements[k]; return el ? String(el.value || '').trim() : ''; }
+function good(f){
+  var k = f.dataset.req, v = val(k);
+  if (!v) return false;
+  if (k === 'email') return okEmail(v);
+  if (k === 'phone') return okPhone(v);
+  return true;
+}
+function data(){
+  var ck = form.elements['optin'];
+  return { name: val('name'), email: val('email'), phone: val('phone').replace(/[\s-]/g, ''), optin: ck && ck.checked ? '是' : '否' };
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(data())); } catch(e){} }
+function restore(){
+  var o; try { o = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ return; }
+  if (!o) return;
+  Object.keys(o).forEach(function(k){
+    var el = form.elements[k]; if (!el) return;
+    if (el.type === 'checkbox') { el.checked = o[k] === '是'; return; }
+    if (!el.value) el.value = o[k];
+  });
+}
+function sync(){
+  fs.forEach(function(f){ if (f.classList.contains('bad') && good(f)) f.classList.remove('bad'); });
+  cDone.textContent = fs.filter(good).length;
+  save();
+}
+form.addEventListener('input', sync);
+form.addEventListener('change', sync);
+
+function validate(){
+  var first = null;
+  fs.forEach(function(f){
+    var ok = good(f);
+    f.classList.toggle('bad', !ok);
+    if (!ok && !first) first = f;
+  });
+  if (first) { first.scrollIntoView({behavior:'smooth', block:'center'}); var i = first.querySelector('input'); if (i) i.focus({preventScroll:true}); }
+  return !first;
+}
+
+var LABELS = {name:'稱呼', email:'Email', phone:'手機', optin:'日後通知'};
+function toText(o){
+  return Object.keys(o).filter(function(k){ return o[k]; })
+    .map(function(k){ return (LABELS[k] || k) + '：' + o[k]; }).join('\n');
+}
+function copyTo(btn, txt){
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(function(){ btn.textContent = '已複製'; },
+      function(){ btn.textContent = '複製失敗，請截圖這一頁傳給我們'; });
+  } else { btn.textContent = '複製失敗，請截圖這一頁傳給我們'; }
+}
+
+// 頁面放在 Apps Script 上時有 google.script.run，直接呼叫後端，最穩
+function hasGas(){ return !!(window.google && google.script && google.script.run); }
+function send(o){
+  if (hasGas()) {
+    return new Promise(function(resolve, reject){
+      var done = false;
+      var timer = setTimeout(function(){ if (!done) { done = true; reject(new Error('timeout')); } }, 20000);
+      google.script.run
+        .withSuccessHandler(function(res){
+          if (done) return; done = true; clearTimeout(timer);
+          (res && res.ok) ? resolve() : reject(new Error((res && res.error) || 'not ok'));
+        })
+        .withFailureHandler(function(err){ if (done) return; done = true; clearTimeout(timer); reject(err); })
+        .signup(o);
+    });
+  }
+  // 放在別處時用 POST。Content-Type 用 text/plain 是刻意的：避開 CORS 預檢
+  var ctrl = window.AbortController ? new AbortController() : null;
+  var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 20000);
+  return fetch(ENDPOINT, {
+    method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(o), signal: ctrl ? ctrl.signal : undefined
+  }).then(function(r){ return r.json(); })
+    .then(function(res){ clearTimeout(timer); if (!res || !res.ok) throw new Error((res && res.error) || 'not ok'); },
+      function(err){ clearTimeout(timer); throw err; });
+}
+
+var sending = false;
+var sendBtn = document.getElementById('sendBtn');
+var sendErr = document.getElementById('sendErr');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  if (sending) return;
+  if (!validate()) return;
+  var o = data();
+  sendErr.style.display = 'none';
+  if (!ENDPOINT && !hasGas()) { showDone(o, true); return; }
+
+  sending = true;
+  sendBtn.disabled = true;
+  sendBtn.textContent = '送出中…';
+  send(o).then(function(){ showDone(o, false); }, function(){
+    sending = false;
+    sendBtn.disabled = false;
+    sendBtn.textContent = '再送一次';
+    var b = document.getElementById('errCopy');
+    b.textContent = '複製報名內容';
+    b.onclick = function(){ copyTo(b, toText(o)); };
+    sendErr.style.display = 'block';
+    sendErr.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+});
+
+function showDone(o, preview){
+  document.getElementById('doneMsg').textContent =
+    '課程公開後，我們會把資訊和上課連結寄到 ' + o.email + '。這場課不錄影、不提供回放，當天記得留兩個小時。';
+  document.getElementById('previewNote').style.display = preview ? 'block' : 'none';
+  var sum = document.getElementById('sum');
+  sum.innerHTML = '';
+  Object.keys(o).forEach(function(k){
+    if (!o[k]) return;
+    var row = document.createElement('div');
+    row.className = 'row';
+    var dt = document.createElement('dt'); dt.textContent = LABELS[k] || k;
+    var dd = document.createElement('dd'); dd.textContent = o[k];
+    row.appendChild(dt); row.appendChild(dd);
+    sum.appendChild(row);
+  });
+  var copyBtn = document.getElementById('copyBtn');
+  copyBtn.textContent = '複製報名內容';
+  copyBtn.onclick = function(){ copyTo(copyBtn, toText(o)); };
+  form.style.display = 'none';
+  document.getElementById('done').classList.add('on');
+  try { localStorage.removeItem(KEY); } catch(e){}
+  document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+restore();
+sync();
+</script>
