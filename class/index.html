@@ -316,6 +316,13 @@ function send(o){
     });
   }
   // 放在別處時用 POST。Content-Type 用 text/plain 是刻意的：避開 CORS 預檢
+  // 跨網域第一次送偶爾會被擋掉（實測過），所以失敗自動再試一次，使用者不用自己按
+  return post(o).catch(function(){
+    return new Promise(function(r){ setTimeout(r, 1500); }).then(function(){ return post(o); });
+  });
+}
+
+function post(o){
   var ctrl = window.AbortController ? new AbortController() : null;
   var timer = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 20000);
   return fetch(ENDPOINT, {
