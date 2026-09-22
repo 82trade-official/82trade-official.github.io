@@ -96,8 +96,19 @@
   .links svg.st{fill:none;stroke:currentColor;stroke-width:1.6}
   .links .lb{font-size:12.5px;line-height:1.35;text-align:center;color:var(--txt)}
   .links .lb i{display:block;margin-top:2px;font-style:normal;font-size:10.5px;color:var(--mute)}
+  /* 摺疊區：個資告知、課前須知。預設收起，點標題展開 */
+  .consent{margin:20px 0 0;font-size:12px;color:var(--sub);line-height:1.8}
+  .fold{margin:10px 0 0}
+  .fold summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--sub);padding:4px 0;user-select:none}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--mute);border-bottom:1.5px solid var(--mute);
+    transform:rotate(-45deg);transition:transform .18s;margin-right:2px}
+  .fold[open] summary::before{transform:rotate(45deg)}
+  .fold summary:hover{color:var(--txt)}
+  .fold .privacy{margin:10px 0 0}
   /* 頁尾警語 */
-  .fine{margin:52px 0 0;padding:24px 0 0;border-top:1px solid var(--line-2)}
+  .fine{margin:40px 0 0;padding:18px 0 0;border-top:1px solid var(--line-2)}
   .fine-h{margin:0;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--mute)}
 
   /* 報名面板 */
@@ -167,7 +178,7 @@
     <div class="sec-h"><span>DETAILS</span><h2>時間與形式</h2></div>
     <dl class="facts">
       <div class="fact"><dt>時間</dt><dd><span class="num">2026</span> 年 <span class="num">10</span> 月<small>課程公開後，會再把資訊傳給留了資料的人</small></dd></div>
-      <div class="fact"><dt>形式</dt><dd>線上，約 <span class="num">2</span> 小時<small>上課連結會寄到你的信箱</small></dd></div>
+      <div class="fact"><dt>形式</dt><dd>線上，約 <span class="num">2</span> 小時<small>不錄影、不回放；上課連結會寄到你的信箱</small></dd></div>
       <div class="fact"><dt>費用</dt><dd>免費<small>聽完不用買任何東西</small></dd></div>
     </dl>
   </section>
@@ -210,8 +221,10 @@
         一直失敗的話，按下面複製起來直接傳給我們。<br>
         <button type="button" class="ghost" id="errCopy">複製報名內容</button>
       </div>
+      <p class="consent">按下「送出報名」，代表你已滿 <span class="num">18</span> 歲，並同意下方的個人資料蒐集告知。</p>
+      <details class="fold">
+        <summary>個人資料蒐集告知</summary>
       <p class="privacy">
-        <b>個人資料蒐集告知。</b>
         蒐集者：82TRADE。蒐集的是你的稱呼、Email 和手機。
         用途有兩個：一是這場百萬收益入門課（第一堂免費公開課）的報名、開課通知與提醒；二是<b>只有在你自己勾選上面那一格時</b>，日後寄課程與活動資訊給你。
         資料存在 Google 雲端（Google LLC，伺服器位於境外），只有 82TRADE 負責這場課的人看得到。
@@ -220,8 +233,8 @@
         你可以隨時查詢、閱覽、複製、補充更正、停止使用或刪除你的資料，也可以隨時免費取消日後的通知，
         兩者都請洽官方 LINE @827egjii，我們會在 <span class="num">15</span> 天內處理。
         不留這些資料，我們就沒辦法通知你上課連結；那一格不勾，完全不影響你參加這場課。
-        按下「送出報名」，代表你已滿 <span class="num">18</span> 歲，並同意以上內容。
       </p>
+      </details>
     </form>
 
     <div class="done" id="done">
@@ -244,29 +257,15 @@
     </div>
   </nav>
 
-  <section class="about">
-    <p class="lede">82TRADE 的第一堂免費公開課，<span class="num">10</span> 月線上開講，約兩小時。現在留下資料，課程公開後我們會再把資訊傳給你。</p>
-    <div class="chips">
-      <span class="chip on">免費</span>
-      <span class="chip">公開課</span>
-      <span class="chip">線上</span>
-      <span class="chip">約 <span class="num">2</span> 小時</span>
-      <span class="chip">不錄影・不回放</span>
-    </div>
-  </section>
-
-  <section class="fine">
-    <p class="fine-h">課前請先知道</p>
+  <!-- 9/22 Justin：簡介和標籤刪掉（跟時間與形式重複）；警語合併成三條並摺起來；這次沒送法規隊，是 Justin 的決定 -->
+  <details class="fold fine">
+    <summary>課前請先知道</summary>
     <ul class="notes">
       <li>「百萬收益」是講師個人過去的交易紀錄，不是這堂課要帶你達到的目標，也不是課程成效，不代表或保證任何參加者能取得相同或類似結果。</li>
       <li>合約交易有高槓桿，可能在很短時間內虧掉全部本金。</li>
-      <li>這場課不錄影、不提供回放，當天要自己留兩個小時。</li>
-      <li>這場課是交易教育內容，不構成投資建議，也不是對任何特定商品的分析意見或推介。</li>
-      <li>這場課不銷售任何商品或服務，不推薦標的、不提供進出場點位，也不推介任何交易平台。</li>
-      <li>官方不帶單、不報明牌、不代客操作、不收取績效分潤：我們給判斷方法，不給你買賣點位。</li>
-      <li>限 <span class="num">18</span> 歲以上參加。</li>
+      <li>這是交易教育內容，不構成投資建議。官方不帶單、不報明牌、不推薦標的、不給進出場點位，也不推介任何交易平台。</li>
     </ul>
-  </section>
+  </details>
 
   <footer>
     <span class="lg"><i></i><span>82TRADE</span></span>
